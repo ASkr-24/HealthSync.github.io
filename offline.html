@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Offline — HealthSync</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:linear-gradient(120deg,#6C63FF,#A3F7BF);color:#fff}
+    .card{max-width:640px;padding:28px;border-radius:12px;background:rgba(255,255,255,0.06);text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.25)}
+    a{color:#fff;text-decoration:underline}
+  </style>
+</head>
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+    });
+  </script>
+  <div class="card">
+    <h1>You're offline!</h1>
+    <p>Some features are unavailable while you're offline. Previously cached pages and messages still work.</p>
+    <p><a href="/homecopy.html">Go back home</a></p>
+  </div>
+</body>
+</html>

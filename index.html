@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthSync — Gentle AI Companion</title>
+  <meta name="description" content="HealthSync — calm, approachable mental-wellness assistant. Voice-enabled, PWA-ready." />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <!-- Loader -->
+  <div id="app-loader" class="loader" role="status" aria-live="polite">
+    <div class="loader-ring" aria-hidden="true"></div>
+    <div class="loader-text">Starting HealthSync…</div>
+  </div>
+
+  <!-- Header -->
+  <header class="nav glass" role="banner">
+    <div class="brand">
+      <button id="floatingAssistant" aria-label="Open assistant" class="avatar-btn" title="Open assistant">
+        <!-- small animated face -->
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect rx="6" width="24" height="24" fill="#fff"/><circle cx="8.2" cy="10" r="1.2" fill="#415aff"/><circle cx="15.8" cy="10" r="1.2" fill="#415aff"/><path d="M7 15c1.2 1 2.5 1 4 1s2.8 0 4-1" stroke="#415aff" stroke-width="0.9" stroke-linecap="round"/></svg>
+      </button>
+      <h1>HealthSync</h1>
+    </div>
+
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <a href="home.html" style="margin-right: 24px; padding: 10px 18px;">Home</a>
+      <a href="chat.html" style="margin-right: 24px; padding: 10px 18px;">Chat</a>
+      <a href="history.html" style="margin-right: 24px; padding: 10px 18px;">History</a>
+      <a href="contact.html" style="padding: 10px 18px;">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="darkModeBtn" title="Toggle dark mode" aria-pressed="false">🌙</button>
+    </div>
+  </header>
+
+    <!-- HERO -->
+    <!-- Updated HERO section with improved padding and margin -->
+<section id="home" class="hero" aria-labelledby="hero-heading" style="padding: 4rem 1.5rem; margin-top: 2rem; margin-bottom: 3rem;">
+  <div class="hero-card glass" style="padding: 3rem 2rem; border-radius: 1.5rem;">
+    <div class="hero-body" style="margin-bottom: 2rem;">
+      <h2 id="hero-heading" style="margin-bottom: 1rem;">You don't have to suffer alone!</h2>
+      <p class="lead" style="margin-bottom: 1.5rem;">A calm, warm assistant — voice-enabled, thoughtful replies, and offline-friendly.</p>
+      <div class="hero-cta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button id="startChatBtn" class="cta">Start Chat</button>
+        <button id="voiceBtn" class="voice-box ghost" aria-label="Start voice">🎤 Voice</button>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true" style="margin-top: 1rem;">
+      <div class="ai-orb" aria-hidden="true" role="img" title="HealthSync orb"></div>
+    </div>
+  </div>
+</section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section" aria-labelledby="features-title">
+      <h3 id="features-title" class="section-title">Features</h3>
+      <div class="cards" role="list">
+        <article class="card glass" role="listitem">
+          <h4>Comforting conversation</h4>
+          <p>Supportive, safety-aware responses and breathing exercises.</p>
+        </article>
+
+        <article class="card glass" role="listitem">
+          <h4>Voice in & out</h4>
+          <p>Speak naturally — HealthSync listens and can speak back.</p>
+        </article>
+
+        <article class="card glass" role="listitem">
+          <h4>Offline & PWA</h4>
+          <p>Works offline, queues messages, and can be installed to devices.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHAT -->
+    <section id="chatbot-section" class="section" aria-labelledby="chat-title">
+      <h3 id="chat-title" class="section-title">Chat</h3>
+
+      <div class="chat-shell glass" role="application" aria-label="Chat with HealthSync">
+        <div class="chat-header">
+          <div class="assistant-meta">
+            <div class="assistant-avatar" aria-hidden="true"></div>
+            <div>
+              <strong>MentalWell Assistant</strong>
+              <div class="small">Confidential • Multilingual</div>
+            </div>
+          </div>
+
+          <div class="top-controls">
+            <label for="language-select" class="sr-only">Language</label>
+            <select id="language-select" aria-label="Language">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="hi">हिन्दी</option>
+              <option value="kn">ಕನ್ನಡ</option>
+            </select>
+            <button id="clearChatBtn" title="Clear">Clear</button>
+          </div>
+        </div>
+
+        <div id="chat-window" class="chat-window" role="log" aria-live="polite" aria-atomic="false"></div>
+
+        <form id="chat-form" class="chat-form" aria-label="Send a message">
+          <div class="input-row">
+            <textarea id="user-input" placeholder="Type a message or press 🎙 to speak..." rows="1" autocomplete="off" aria-label="Message"></textarea>
+
+            <div class="controls">
+              <button type="button" id="voiceToggle" class="voice-box circle" title="Voice input" aria-pressed="false">🎙️</button>
+              <button id="sendBtn" type="submit" class="send">Send</button>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button type="button" id="quickHelpBtn" class="chip">I’m anxious</button>
+            <button type="button" id="moodCheckBtn" class="chip">Feeling low</button>
+            <div id="typingIndicator" class="typing" aria-hidden="true"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h3 id="contact-title" class="section-title">Contact</h3>
+
+      <form id="contact-form" class="contact glass" aria-label="Contact form">
+        <div class="row contact-row">
+          <div class="field-group">
+            <label for="name">Name</label>
+            <input id="name" placeholder="Your name" />
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input id="email" placeholder="Email" type="email" />
+          </div>
+        </div>
+
+        <div class="field-group full">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="How can we help?" rows="6"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button id="contact-submit" type="submit" class="cta">Submit</button>
+          <button type="reset" class="ghost">Reset</button>
+        </div>
+
+        <div id="contactStatus" class="status-text" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer glass" role="contentinfo">
+    <div>MentalWell © 2025 — Built with care</div>
+    <div class="small muted">For demo purposes only. Not a substitute for professional help.</div>
+  </footer>
+
+  <script src="app.js" defer></script>
+  <script>
+    // Fade-in on page load and fade-out on navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthSync — Chat</title>
+  <meta name="description" content="HealthSync — Chat with your gentle AI companion." />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="stylesheet" href="../static/styles.css" />
+  <link rel="manifest" href="../static/manifest.json" />
+</head>
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <header class="nav glass" role="banner">
+    <div class="brand">
+      <button id="floatingAssistant" aria-label="Open assistant" class="avatar-btn" title="Open assistant">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect rx="6" width="24" height="24" fill="#fff"/><circle cx="8.2" cy="10" r="1.2" fill="#415aff"/><circle cx="15.8" cy="10" r="1.2" fill="#415aff"/><path d="M7 15c1.2 1 2.5 1 4 1s2.8 0 4-1" stroke="#415aff" stroke-width="0.9" stroke-linecap="round"/></svg>
+      </button>
+      <h1>HealthSync</h1>
+    </div>
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <a href="home.html" style="margin-right: 24px; padding: 10px 18px;">Home</a>
+      <a href="chatcopy.html" style="padding: 10px 18px;">Chat</a>
+      <a href="loginpage.html" style="padding: 10px 18px;">Sign In</a>
+    </nav>
+    </nav>
+    </nav>
+    <div class="nav-actions">
+      <button id="darkModeBtn" title="Toggle dark mode" aria-pressed="false">🌙</button>
+    </div>
+  </header>
+  <main>
+    <section id="chatbot-section" class="section" aria-labelledby="chat-title">
+      <h3 id="chat-title" class="section-title">Chat</h3>
+      <div class="chat-shell glass" role="application" aria-label="Chat with HealthSync">
+        <div class="chat-header">
+          <div class="assistant-meta">
+            <div class="assistant-avatar" aria-hidden="true"></div>
+            <div>
+              <strong>MentalWell Assistant</strong>
+              <div class="small">Confidential • Multilingual</div>
+            </div>
+          </div>
+          <div class="top-controls">
+            <label for="language-select" class="sr-only">Language</label>
+            <select id="language-select" aria-label="Language">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="hi">हिन्दी</option>
+              <option value="kn">ಕನ್ನಡ</option>
+            </select>
+            <button id="clearChatBtn" title="Clear">Clear</button>
+          </div>
+        </div>
+        <div id="chat-window" class="chat-window" role="log" aria-live="polite" aria-atomic="false"></div>
+        <form id="chat-form" class="chat-form" aria-label="Send a message">
+          <div class="input-row">
+            <textarea id="user-input" placeholder="Type a message or press 🎙 to speak..." rows="1" autocomplete="off" aria-label="Message"></textarea>
+            <div class="controls">
+              <button type="button" id="voiceToggle" class="voice-box circle" title="Voice input" aria-pressed="false">🎙️</button>
+              <button id="sendBtn" type="submit" class="send">Send</button>
+            </div>
+          </div>
+          <div class="action-row">
+            <button type="button" id="quickHelpBtn" class="chip">I’m anxious</button>
+            <button type="button" id="moodCheckBtn" class="chip">Feeling low</button>
+            <div id="typingIndicator" class="typing" aria-hidden="true"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer glass" role="contentinfo">
+    <div>MentalWell © 2025 — Built with care</div>
+    <div class="small muted">For demo purposes only. Not a substitute for professional help.</div>
+  </footer>
+  <script src="app.js" defer></script>
+  <script>
+    // Fade-in on page load and fade-out on navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

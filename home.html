@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthSync — Home</title>
+  <meta name="description" content="HealthSync — calm, approachable mental-wellness assistant. Voice-enabled, PWA-ready." />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <header class="nav glass" role="banner">
+    <div class="brand">
+      <button id="floatingAssistant" aria-label="Open assistant" class="avatar-btn" title="Open assistant">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect rx="6" width="24" height="24" fill="#fff"/><circle cx="8.2" cy="10" r="1.2" fill="#415aff"/><circle cx="15.8" cy="10" r="1.2" fill="#415aff"/><path d="M7 15c1.2 1 2.5 1 4 1s2.8 0 4-1" stroke="#415aff" stroke-width="0.9" stroke-linecap="round"/></svg>
+      </button>
+      <h1>HealthSync</h1>
+    </div>
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <a href="home.html" style="margin-right: 24px; padding: 10px 18px;">Home</a>
+      <a href="chatcopy.html" style="padding: 10px 18px;">Chat</a>
+      <a href="loginpage.html" style="padding: 10px 18px;">Sign In</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="darkModeBtn" title="Toggle dark mode" aria-pressed="false">🌙</button>
+    </div>
+  </header>
+  <main>
+    <section id="home" class="hero" aria-labelledby="hero-heading" style="padding: 4rem 1.5rem; margin-top: 2rem; margin-bottom: 3rem;">
+      <div class="hero-card glass" style="padding: 3rem 2rem; border-radius: 1.5rem;">
+        <div class="hero-body" style="margin-bottom: 2rem;">
+          <h2 id="hero-heading" style="margin-bottom: 1rem;">You don't have to suffer alone!</h2>
+          <p class="lead" style="margin-bottom: 1.5rem;">A calm, warm assistant — voice-enabled, thoughtful replies, and offline-friendly.</p>
+          <div style="margin-bottom: 1.2rem; font-size: 1.08rem; color: var(--muted);">
+            <p>We understand that reaching out can be difficult. Here, you’ll find a safe space to share your feelings, ask questions, and get gentle support—anytime, anywhere.</p>
+            <p>Whether you’re feeling anxious, low, or just need someone to listen, HealthSync is here to help you breathe easier and feel heard.</p>
+            <p>Your journey matters. Let’s take the next step together.</p>
+          </div>
+          <div class="hero-cta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="startChatBtn" class="cta">Start Chat</button>
+            <button id="voiceBtn" class="voice-box ghost" aria-label="Start voice">🎤 Voice</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true" style="margin-top: 1rem;">
+          <div class="ai-orb" aria-hidden="true" role="img" title="HealthSync orb">
+           <img src="HealthSync.png" class="ai_orb" style="border-radius: 20px;" width="130" height="130">
+          </div>
+        </div>
+      </div>
+    </section>
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="section glass" aria-labelledby="about-title" style="margin-top: 2.5rem; padding: 2.5rem 1.5rem; border-radius: 1.5rem;">
+          <h3 id="about-title" class="section-title" style="margin-bottom: 1.2rem;">About Us</h3>
+          <div class="about-content" style="max-width: 800px; margin: 0 auto; font-size: 1.08rem; color: var(--muted);">
+            <p><strong>HealthSync</strong> is dedicated to supporting your mental wellness journey with compassion, confidentiality, and care. Our mission is to provide a safe, approachable space for anyone seeking support, guidance, or simply a listening ear.</p>
+            <ul style="margin: 1.2rem 0 1.6rem 1.2rem; padding-left: 0;">
+              <li style="margin-bottom: 0.7rem;"><strong>Confidential & Secure:</strong> Your conversations are private and never shared. We prioritize your safety and trust.</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Inclusive & Accessible:</strong> Multilingual support and a welcoming environment for all backgrounds, ages, and identities.</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Evidence-Based Resources:</strong> Breathing exercises, coping strategies, and links to professional help when needed.</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Safety First:</strong> If you express thoughts of self-harm or crisis, we provide helpline information and encourage reaching out to professionals.</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Offline Support:</strong> Our app works offline, so you can access help and queue messages even without internet.</li>
+            </ul>
+            <p style="margin-bottom: 0.7rem;"><strong>Disclaimer:</strong> HealthSync is a supportive companion, not a substitute for professional medical or psychological care. If you are in crisis or need urgent help, please contact local emergency services or a licensed mental health professional.</p>
+            <p style="margin-bottom: 0.7rem;">We believe everyone deserves to feel heard, valued, and supported. You are not alone—HealthSync is here for you.</p>
+          </div>
+        </section>
+    <section id="features" class="section" aria-labelledby="features-title">
+      <h3 id="features-title" class="section-title">Features</h3>
+      <div class="cards" role="list">
+        <article class="card glass" role="listitem">
+          <h4>Comforting conversation</h4>
+          <p>Supportive, safety-aware responses and breathing exercises.</p>
+        </article>
+        <article class="card glass" role="listitem">
+          <h4>Voice in & out</h4>
+          <p>Speak naturally — HealthSync listens and can speak back.</p>
+        </article>
+        <article class="card glass" role="listitem">
+          <h4>Offline & PWA</h4>
+          <p>Works offline, queues messages, and can be installed to devices.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer glass" role="contentinfo">
+    <div>MentalWell © 2025 — Built with care</div>
+    <div class="small muted">For demo purposes only. Not a substitute for professional help.</div>
+  </footer>
+  <script src="app.js" defer></script>
+  <script>
+      // Fade-in on page load and fade-out on navigation
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.style.opacity = '1';
+        var navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.transition = 'opacity 0.5s';
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+              window.location.href = link.getAttribute('href');
+            }, 480);
+          });
+        });
+      });
+    // Start Chat button navigates to chat.html
+    document.addEventListener('DOMContentLoaded', function() {
+      var startChatBtn = document.getElementById('startChatBtn');
+      if (startChatBtn) {
+        startChatBtn.onclick = function() {
+          window.location.href = 'chat.html';
+        };
+      }
+      // Voice button shows a message or activates voice input
+      var voiceBtn = document.getElementById('voiceBtn');
+      if (voiceBtn) {
+        voiceBtn.onclick = function() {
+          if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            alert('Voice input is available in the Chat page. Please go to Chat to use voice features.');
+          } else {
+            alert('Voice input is not supported in this browser.');
+          }
+        };
+      }
+    });
+  </script>
+</body>
+</html>

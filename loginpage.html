@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcSync — Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bg.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin: 0;
+            font-weight: 600;
+            color: #202124;
+        }
+        p {
+            color: #434343;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #dadce0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus {
+            border-color: #1a73e8;
+            outline: none;
+            box-shadow: 0 0 2px #1a73e8;
+        }
+        .btn {
+            width: 98%;
+            padding: 12px;
+            background-color: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #1656c4;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #5f6368;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        #loginStatus {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Make sure logo-arcsync.png is in /static -->
+        <img src="ArcSynclogo.png" class="logo" alt="ArcSync Logo" />
+        <h2>Sign in</h2>
+        <p>Use your ArcSync Account</p>
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div id="loginStatus"></div>
+        <div class="footer">
+            <a href="#">Forgot password?</a>
+        </div>
+    </div>
+    <script>
+    document.getElementById('loginForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const username = this.username.value.trim();
+        const password = this.password.value;
+        try {
+            const resp = await fetch('/api/login', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({username, password})
+            });
+            const data = await resp.json();
+            if (data.success) {
+                window.location.href = 'homecopy.html'; // Change to your preferred landing page
+            } else {
+                document.getElementById('loginStatus').textContent = data.error || "Failed to login!";
+            }
+        } catch (error) {
+            document.getElementById('loginStatus').textContent = "Login request failed. Please check your connection.";
+        }
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "ASkr": [
+    {
+      "timestamp": "2025-11-22T03:58:24.270834",
+      "message": "hii",
+      "reply": "Hi! You\u2019re not alone. Let\u2019s talk."
+    },
+    {
+      "timestamp": "2025-11-22T03:58:34.231628",
+      "message": "I'm sad",
+      "reply": "I'm sorry to hear that but now you have me, lets make you feel better"
+    },
+    {
+      "timestamp": "2025-11-22T03:58:41.883380",
+      "message": "I've been feeling low lately.",
+      "reply": "Sometimes just talking helps."
+    },
+    {
+      "timestamp": "2025-11-22T04:00:26.985088",
+      "message": "i'm angry!!!!",
+      "reply": "If you want to talk about something else, that\u2019s okay too."
+    },
+    {
+      "timestamp": "2025-11-22T04:00:38.126517",
+      "message": "i'm angry",
+      "reply": "I\u2019m always here to chat if you need me."
+    },
+    {
+      "timestamp": "2025-11-22T04:01:36.819924",
+      "message": "angry",
+      "reply": "Do you have someone nearby who supports you?"
+    },
+    {
+      "timestamp": "2025-11-22T04:01:45.464397",
+      "message": "nope",
+      "reply": "That must be tough. I\u2019m here for you."
+    },
+    {
+      "timestamp": "2025-11-22T04:02:08.346124",
+      "message": "yaa it is difficult",
+      "reply": "You\u2019re not alone in this. Let\u2019s talk through it."
+    },
+    {
+      "timestamp": "2025-11-22T05:13:37.485948",
+      "message": "hello again",
+      "reply": "Hello! Take your time, I\u2019m here to listen."
+    }
+  ],
+  "surya": [
+    {
+      "timestamp": "2025-11-22T04:34:24.422559",
+      "message": "hiii",
+      "reply": "Hello there! What would you like to talk about?"
+    },
+    {
+      "timestamp": "2025-11-22T04:34:35.862067",
+      "message": "i'm sad",
+      "reply": "Don't be sad, I'm here to help you!"
+    },
+    {
+      "timestamp": "2025-11-22T04:59:23.166562",
+      "message": "I'm Hungry",
+      "reply": "Your feelings are valid. Would you like to talk more?"
+    },
+    {
+      "timestamp": "2025-11-22T04:59:33.848286",
+      "message": "yes i do",
+      "reply": "It's okay to feel that way. How can I support you?"
+    },
+    {
+      "timestamp": "2025-11-22T04:59:43.762547",
+      "message": "get me some food",
+      "reply": "Thank you for trusting me."
+    }
+  ],
+  "Sharan J": [
+    {
+      "timestamp": "2025-11-22T05:46:30.276464",
+      "message": "Hi",
+      "reply": "Hello! how can i help you today?"
+    },
+    {
+      "timestamp": "2025-11-22T05:46:59.147117",
+      "message": "Hii",
+      "reply": "Hey! You matter. How can I help?"
+    },
+    {
+      "timestamp": "2025-11-22T05:47:21.137729",
+      "message": "I'm really feeling down today",
+      "reply": "I respect your courage for reaching out."
+    }
+  ]
+}

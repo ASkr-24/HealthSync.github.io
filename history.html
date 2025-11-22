@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthSync — History</title>
+  <meta name="description" content="View your chat and activity history on HealthSync." />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="stylesheet" href="../static/styles.css" />
+  <link rel="manifest" href="../static/manifest.json" />
+</head>
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <header class="nav glass" role="banner">
+    <div class="brand">
+      <button id="floatingAssistant" aria-label="Open assistant" class="avatar-btn" title="Open assistant">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect rx="6" width="24" height="24" fill="#fff"/><circle cx="8.2" cy="10" r="1.2" fill="#415aff"/><circle cx="15.8" cy="10" r="1.2" fill="#415aff"/><path d="M7 15c1.2 1 2.5 1 4 1s2.8 0 4-1" stroke="#415aff" stroke-width="0.9" stroke-linecap="round"/></svg>
+      </button>
+      <h1>HealthSync</h1>
+    </div>
+    <nav class="nav-links" role="navigation" aria-label="Main">
+       <a href="homecopy.html" style="margin-right: 24px; padding: 10px 18px;">Home</a>
+      <a href="chat.html" style="margin-right: 24px; padding: 10px 18px;">Chat</a>
+      <a href="history.html" style="margin-right: 24px; padding: 10px 18px;">History</a>
+      <a href="contact.html" style="padding: 10px 18px;">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="darkModeBtn" title="Toggle dark mode" aria-pressed="false">🌙</button>
+    </div>
+  </header>
+  <main>
+    <section id="history" class="section" aria-labelledby="history-title">
+      <h3 id="history-title" class="section-title">Your History</h3>
+      <div class="glass" style="max-width: 800px; margin: 0 auto; padding: 2rem; border-radius: 1.2rem;">
+        <p style="margin-bottom: 1.2rem; color: var(--muted);">Here you can view your recent chat messages and activity. For privacy, your history is only stored locally and is never shared.</p>
+        <div id="history-content" style="min-height: 120px; color: var(--muted);">
+          <em>No history available yet. Start chatting to see your messages here!</em>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer glass" role="contentinfo">
+    <div>MentalWell © 2025 — Built with care</div>
+    <div class="small muted">For demo purposes only. Not a substitute for professional help.</div>
+  </footer>
+  <script src="app.js" defer></script>
+  <script>
+    // Fade-in on page load and fade-out on navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+    });
+  </script>
+  <script src="app.js" defer></script>
+  <script>
+    // Fade-in on page load and fade-out on navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+
+      // --- ADD THIS: Fetch history from server ---
+      const historyContent = document.getElementById('history-content');
+      if (!historyContent) return;
+      fetch('/api/history', { method: 'GET', credentials: 'same-origin' })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success && Array.isArray(data.history) && data.history.length > 0) {
+            historyContent.innerHTML = data.history.map(
+              h => `<div style="margin-bottom:1.3em">
+                      <strong>You:</strong> ${h.message}<br>
+                      <strong>Bot:</strong> ${h.reply}<br>
+                      <span style="color:#888; font-size:0.95em">${h.timestamp}</span>
+                    </div>`
+            ).join('');
+          } else {
+            historyContent.innerHTML = "<em>No history available yet. Start chatting while logged in, and you'll see it here!</em>";
+          }
+        })
+        .catch(() => {
+          historyContent.innerHTML = "<em>Could not load history. Make sure you're logged in!</em>";
+        });
+    });
+  </script>
+</body>
+</html>

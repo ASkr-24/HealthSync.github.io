@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthSync — Contact</title>
+  <meta name="description" content="HealthSync — Contact form for support." />
+  <meta name="theme-color" content="#6C63FF" />
+  <link rel="stylesheet" href="../static/styles.css" />
+  <link rel="manifest" href="../static/manifest.json" />
+</head>
+<body class="unique-bg" style="opacity:0; transition:opacity 0.5s;">
+  <div class="mental-bg"></div>
+  <header class="nav glass" role="banner">
+    <div class="brand">
+      <button id="floatingAssistant" aria-label="Open assistant" class="avatar-btn" title="Open assistant">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><rect rx="6" width="24" height="24" fill="#fff"/><circle cx="8.2" cy="10" r="1.2" fill="#415aff"/><circle cx="15.8" cy="10" r="1.2" fill="#415aff"/><path d="M7 15c1.2 1 2.5 1 4 1s2.8 0 4-1" stroke="#415aff" stroke-width="0.9" stroke-linecap="round"/></svg>
+      </button>
+      <h1>HealthSync</h1>
+    </div>
+    <nav class="nav-links" role="navigation" aria-label="Main">
+       <a href="homecopy.html" style="margin-right: 24px; padding: 10px 18px;">Home</a>
+      <a href="chat.html" style="margin-right: 24px; padding: 10px 18px;">Chat</a>
+      <a href="history.html" style="margin-right: 24px; padding: 10px 18px;">History</a>
+      <a href="contact.html" style="padding: 10px 18px;">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="darkModeBtn" title="Toggle dark mode" aria-pressed="false">🌙</button>
+    </div>
+  </header>
+  <main>
+     <section id="contact" class="section glass" aria-labelledby="contact" style="margin-top: 2.5rem; padding: 2.5rem 1.5rem; border-radius: 1.5rem;">
+          <h3 id="contact-title" class="section-title" style="margin-bottom: 1.2rem;">Contact Us</h3>
+          <div class="contact-content" style="max-width: 800px; margin: 0 auto; font-size: 1.08rem; color: var(--muted);">
+            <p><strong>HealthSync</strong> gives you 24/7 contact support. You can contact us by following means :</p>
+            <ul style="margin: 1.2rem 0 1.6rem 1.2rem; padding-left: 0;">
+              <li style="margin-bottom: 0.7rem;"><strong>Contact Number:</strong> 8863856854</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Telephone Number:</strong> 07234 987 654</li>
+              <li style="margin-bottom: 0.7rem;"><strong>E-Mail Address:</strong> healthsync@gmail.com</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Instagram:</strong> @healthsyncofficial</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Telegram:</strong> t.me/healthsyncgroup</li>
+              <li style="margin-bottom: 0.7rem;"><strong>Youtube:</strong> https://youtube.com/@healthsync?si=LreykSZjOGwzCMh2</li>
+            </ul>
+          </div>
+        </section>
+  </main>
+  <footer class="footer glass" role="contentinfo">
+    <div>MentalWell © 2025 — Built with care</div>
+    <div class="small muted">For demo purposes only. Not a substitute for professional help.</div>
+  </footer>
+  <script src="app.js" defer></script>
+  <script>
+    // Fade-in on page load and fade-out on navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+      var navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.style.transition = 'opacity 0.5s';
+          document.body.style.opacity = '0';
+          setTimeout(function() {
+            window.location.href = link.getAttribute('href');
+          }, 480);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
