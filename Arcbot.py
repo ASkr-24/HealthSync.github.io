@@ -1047,11 +1047,11 @@ def is_logged_in():
 
 @app.route("/")
 def home():
-    return render_template("home.html")
-
-@app.route("/index.html")
-def index():
     return render_template("index.html")
+
+@app.route("/home.html")
+def index():
+    return render_template("home.html")
 
 @app.route("/chatcopy.html")
 def chatcopy():
